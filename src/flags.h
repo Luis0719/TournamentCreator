@@ -8,6 +8,9 @@
 
 ABSL_DECLARE_FLAG(std::string, teams_source);
 ABSL_DECLARE_FLAG(std::vector<std::string>, teams);
-ABSL_DECLARE_FLAG(std::string, tournament_mode);
+ABSL_DECLARE_FLAG(std::string, mode);
+ABSL_DECLARE_FLAG(bool, league);
+ABSL_DECLARE_FLAG(bool, deathmatch);
+ABSL_DECLARE_FLAG(bool, groups);
 
 #endif
