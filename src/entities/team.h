@@ -3,8 +3,7 @@
 
 #include <string>
 
-#include "contestant.h"
-#include "player.h"
+#include "src/entities/contestant.h"
 
 namespace tournament {
 class Team : public Contestant {
@@ -13,8 +12,8 @@ class Team : public Contestant {
   ~Team();
 
   std::string GetName() override;
-  std::vector<Player> GetRoaster() override;
-  void SetRoaster(std::vector<Player>) override;
+  std::vector<Contestant*> GetRoaster() override;
+  void SetRoaster(std::vector<Contestant*> roaster) override;
 };
 }  // namespace tournament
 

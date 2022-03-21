@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "contestant.h"
+#include "src/entities/contestant.h"
 
 namespace tournament {
 class Player : public Contestant {
