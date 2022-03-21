@@ -1,0 +1,8 @@
+.vscode
+
+# bazel
+bazel*
+external
+
+# Logger
+logs
