@@ -40,8 +40,7 @@ void ParseAndValidateFlags(int argc, char* argv[]) {
 int main(int argc, char* argv[]) {
   tournament::ParseAndValidateFlags(argc, argv);
 
-  LOG(INFO) << "Creating a new " << absl::GetFlag(FLAGS_tournament_mode)
-            << " tournament";
+  LOG(INFO) << "Creating a new " << absl::GetFlag(FLAGS_mode) << " tournament";
 
   return 0;
 }

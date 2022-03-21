@@ -7,7 +7,8 @@ function reload() {
 function run() {
   echo "Args: $@"
   mkdir -p logs
-  bazel run :main -- $@ --log_dir=`pwd`/logs
+  bazel run :main -- $@ --teams="luis,eduardo"
+  # --log_dir=`pwd`/logs
 }
 
 case $1 in

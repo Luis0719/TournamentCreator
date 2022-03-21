@@ -3,6 +3,7 @@
 # bazel
 bazel*
 external
+compile_commands.json
 
 # Logger
 logs

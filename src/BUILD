@@ -25,7 +25,9 @@ cc_library(
 cc_library(
   name = "tournament_manager",
   deps = [
-
+    "//src/game_mode:deathmatch_mode",
+    "//src/game_mode:league_mode",
+    "//src/game_mode:groups_mode",
   ],
   srcs = ["tournament_manager.cc"],
   hdrs = ["tournament_manager.h"],
