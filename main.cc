@@ -2,6 +2,7 @@
 #include "absl/flags/parse.h"
 #include "glog/logging.h"
 #include "src/flags.h"
+#include "src/tournament_runner.h"
 #include "src/utils.h"
 
 namespace tournament {
@@ -34,13 +35,37 @@ void ParseAndValidateFlags(int argc, char* argv[]) {
                     "source file or --teams for a comma separated list";
     }
   }  // teams input
+
+  {  // game mode input
+    // we support both `mode` and boolean flags for setting game mode.
+    // FLAGS_mode would be our src of truth, so if a boolean flag
+    // was given, use it to set the FLAGS_mode value
+    if (absl::GetFlag(FLAGS_deathmatch)) {
+      absl::SetFlag(&FLAGS_mode, "deathmatch");
+      return;
+    }
+
+    if (absl::GetFlag(FLAGS_league)) {
+      absl::SetFlag(&FLAGS_mode, "league");
+      return;
+    }
+
+    if (absl::GetFlag(FLAGS_groups)) {
+      absl::SetFlag(&FLAGS_mode, "groups");
+      return;
+    }
+  }
 }
 }  // namespace tournament
 
 int main(int argc, char* argv[]) {
+  // This removes the logs from stdout. TODO(Luis) Find a way to workaround this
+  // google::InitGoogleLogging(argv[0]);
   tournament::ParseAndValidateFlags(argc, argv);
 
   LOG(INFO) << "Creating a new " << absl::GetFlag(FLAGS_mode) << " tournament";
+
+  tournament::InitTournament();
 
   return 0;
 }
