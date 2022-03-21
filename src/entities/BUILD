@@ -1,6 +1,15 @@
 cc_library(
+  name = "contestant",
+  hdrs = ["contestant.h"],
+  visibility = [
+    "//src:__subpackages__"
+  ],
+)
+
+cc_library(
   name = "player",
   deps = [
+    ":contestant",
   ],
   srcs = ["player.cc"],
   hdrs = ["player.h"],
@@ -12,7 +21,7 @@ cc_library(
 cc_library(
   name = "team",
   deps = [
-    ":player"
+    ":contestant",
   ],
   srcs = ["team.cc"],
   hdrs = ["team.h"],
