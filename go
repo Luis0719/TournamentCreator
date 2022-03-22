@@ -1,5 +1,9 @@
 #!/bin/sh
 
+function clean() {
+  rm logs/main.Luiss*
+}
+
 function reload() {
   bazel run @hedron_compile_commands//:refresh_all
 }
@@ -83,5 +87,8 @@ case $1 in
     ;;
   run)
     run ${*:2}
+    ;;
+  clean)
+    clean
     ;;
 esac

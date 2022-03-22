@@ -7,7 +7,8 @@ namespace tournament {
 namespace factory {
 class GameModeCreator {
  public:
-  virtual GameMode* CreateTournament() = 0;
+  virtual ~GameModeCreator(){};
+  virtual std::unique_ptr<GameMode> CreateTournament() = 0;
 };
 }  // namespace factory
 }  // namespace tournament

@@ -1,5 +1,8 @@
 #include "src/game_modes/game_mode_factory.h"
 
+#include <memory>
+
+#include "absl/memory/memory.h"
 #include "absl/strings/str_cat.h"
 #include "src/game_modes/deathmatch_mode_creator.h"
 #include "src/game_modes/game_mode.h"
@@ -9,19 +12,19 @@
 
 namespace tournament {
 namespace factory {
-GameMode* CreateTournament(GameMode::Mode game_mode) {
-  GameModeCreator* game_mode_creator;
+std::unique_ptr<GameMode> CreateTournament(GameMode::Mode game_mode) {
+  std::unique_ptr<GameModeCreator> game_mode_creator;
   switch (game_mode) {
     case GameMode::Mode::LEAGUE:
-      game_mode_creator = new LeagueModeCreator();
+      game_mode_creator = absl::make_unique<LeagueModeCreator>();
       break;
 
     case GameMode::Mode::GROUPS:
-      game_mode_creator = new GroupsModeCreator();
+      game_mode_creator = absl::make_unique<GroupsModeCreator>();
       break;
 
     case GameMode::Mode::DEATHMATCH:
-      game_mode_creator = new DeathmatchModeCreator();
+      game_mode_creator = absl::make_unique<DeathmatchModeCreator>();
       break;
 
     default:

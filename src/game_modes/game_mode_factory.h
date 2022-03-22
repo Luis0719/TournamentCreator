@@ -6,7 +6,7 @@
 namespace tournament {
 namespace factory {
 
-GameMode* CreateTournament(GameMode::Mode game_mode);
+std::unique_ptr<GameMode> CreateTournament(GameMode::Mode game_mode);
 
 }  // namespace factory
 }  // namespace tournament

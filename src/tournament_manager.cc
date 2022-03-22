@@ -1,11 +1,15 @@
 #include "tournament_manager.h"
 
+#include <memory>
+
 #include "game_modes/game_mode.h"
 #include "glog/logging.h"
 
 namespace tournament {
-TournamentManager::TournamentManager(TournamentManagerOptions* options)
-    : options_(options), state_(options->game_mode){};
+TournamentManager::TournamentManager(
+    std::unique_ptr<TournamentManagerOptions> options)
+    : contestants_(options->contestants),
+      state_(std::move(options->game_mode)){};
 
 TournamentManager::~TournamentManager() {}
 
@@ -23,5 +27,5 @@ void TournamentManager::Start() {
   //   "!";
 };
 
-GameMode* TournamentManager::GetGamemode() { return options_->game_mode; }
+GameMode* TournamentManager::GetGamemode() { return state_.get(); }
 }  // namespace tournament

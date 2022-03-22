@@ -15,24 +15,6 @@ cc_library(
 )
 
 cc_library(
-  name = "game_mode_factory",
-  deps = [
-    ":game_mode",
-    ":deathmatch_mode_creator",
-    ":groups_mode_creator",
-    ":league_mode_creator",
-    "@com_google_absl//absl/strings",
-  ],
-  srcs = ["game_mode_factory.cc"],
-  hdrs = [
-    "game_mode_factory.h",
-  ],
-  visibility = [
-    "//src:__subpackages__"
-  ],
-)
-
-cc_library(
   name = "deathmatch_mode",
   deps = [
     ":game_mode",
@@ -75,11 +57,31 @@ cc_library(
 )
 
 cc_library(
+  name = "game_mode_factory",
+  deps = [
+    ":game_mode",
+    ":deathmatch_mode_creator",
+    ":groups_mode_creator",
+    ":league_mode_creator",
+    "@com_google_absl//absl/memory:memory",
+    "@com_google_absl//absl/strings",
+  ],
+  srcs = ["game_mode_factory.cc"],
+  hdrs = [
+    "game_mode_factory.h",
+  ],
+  visibility = [
+    "//src:__subpackages__"
+  ],
+)
+
+cc_library(
   name = "deathmatch_mode_creator",
   deps = [
     ":game_mode",
     ":game_mode_creator",
     ":deathmatch_mode",
+    "@com_google_absl//absl/memory:memory",
     "@com_github_google_glog//:glog",
   ],
   srcs = ["deathmatch_mode_creator.cc"],
@@ -97,6 +99,7 @@ cc_library(
     ":game_mode",
     ":game_mode_creator",
     ":league_mode",
+    "@com_google_absl//absl/memory:memory",
     "@com_github_google_glog//:glog",
   ],
   srcs = ["league_mode_creator.cc"],
@@ -112,6 +115,7 @@ cc_library(
     ":game_mode",
     ":game_mode_creator",
     ":groups_mode",
+    "@com_google_absl//absl/memory:memory",
     "@com_github_google_glog//:glog",
   ],
   srcs = ["groups_mode_creator.cc"],

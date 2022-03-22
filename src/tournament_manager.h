@@ -1,6 +1,7 @@
 #ifndef TOURNAMENT_MANAGER_H
 #define TOURNAMENT_MANAGER_H
 
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -10,20 +11,24 @@
 namespace tournament {
 struct TournamentManagerOptions {
   std::vector<Contestant*> contestants;
-  GameMode* game_mode;
+  std::unique_ptr<GameMode> game_mode;
+
+  TournamentManagerOptions(std::vector<Contestant*> contestants,
+                           std::unique_ptr<GameMode> game_mode)
+      : contestants(contestants), game_mode(std::move(game_mode)){};
 };
 
 class TournamentManager {
  public:
-  TournamentManager(TournamentManagerOptions* options);
+  TournamentManager(std::unique_ptr<TournamentManagerOptions> options);
   ~TournamentManager();
 
   void Start();
   GameMode* GetGamemode();
 
  private:
-  TournamentManagerOptions* options_;
-  GameMode* state_;
+  std::vector<Contestant*> contestants_;
+  std::unique_ptr<GameMode> state_;
 };
 }  // namespace tournament
 
