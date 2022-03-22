@@ -7,9 +7,7 @@ namespace tournament {
 
 GroupsMode::GroupsMode(int round_num) : GameMode("Groups", round_num) {}
 
-void GroupsMode::AutomaticSetup() {
-  LOG(INFO) << "Automatic Deathmatch setup";
-};
+void GroupsMode::AutomaticSetup() { LOG(INFO) << "Automatic Groups setup"; };
 
 Contestant* GroupsMode::GetChampion() { return nullptr; };
 

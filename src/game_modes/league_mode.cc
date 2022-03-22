@@ -7,9 +7,7 @@ namespace tournament {
 
 LeagueMode::LeagueMode(int round_num) : GameMode("League", round_num) {}
 
-void LeagueMode::AutomaticSetup() {
-  LOG(INFO) << "Automatic Deathmatch setup";
-};
+void LeagueMode::AutomaticSetup() { LOG(INFO) << "Automatic League setup"; };
 
 Contestant* LeagueMode::GetChampion() { return nullptr; };
 
