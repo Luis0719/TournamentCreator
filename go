@@ -7,7 +7,7 @@ function reload() {
 function run() {
   echo "Args: $@"
   mkdir -p logs
-  bazel run :main -- $@ --teams="luis,eduardo"
+  GLOG_log_dir=`pwd`/logs bazel run :main -- $@ --teams="luis,eduardo"
   # --log_dir=`pwd`/logs
 }
 

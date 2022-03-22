@@ -59,8 +59,7 @@ void ParseAndValidateFlags(int argc, char* argv[]) {
 }  // namespace tournament
 
 int main(int argc, char* argv[]) {
-  // This removes the logs from stdout. TODO(Luis) Find a way to workaround this
-  // google::InitGoogleLogging(argv[0]);
+  google::InitGoogleLogging(argv[0]);
   tournament::ParseAndValidateFlags(argc, argv);
 
   tournament::InitTournament();
