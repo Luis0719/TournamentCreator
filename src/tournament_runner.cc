@@ -32,11 +32,11 @@ GameMode::Mode GetGameMode() {
 std::unique_ptr<TournamentManagerOptions> BuildTournamentManagerOptions(
     std::unique_ptr<GameMode> game_mode) {
   // TODO(Luis): Support any type of contestant
-  std::vector<Contestant*> contestants =
+  std::unique_ptr<std::vector<std::unique_ptr<Contestant>>> contestants =
       Player::BuildPlayersFromStringList(absl::GetFlag(FLAGS_teams));
-
+  LOG(INFO) << 2;
   return absl::make_unique<TournamentManagerOptions>(
-      /* contestants */ contestants,
+      /* contestants */ std::move(contestants),
       /* game_moe */ std::move(game_mode));
 }
 
@@ -47,9 +47,10 @@ void InitTournament() {
   std::unique_ptr<GameMode> tournament =
       factory::CreateTournament(game_mode_type);
 
+  LOG(INFO) << 1;
   std::unique_ptr<TournamentManagerOptions> options =
       BuildTournamentManagerOptions(std::move(tournament));
-
+  LOG(INFO) << 1;
   std::unique_ptr<TournamentManager> manager =
       absl::make_unique<TournamentManager>(std::move(options));
 

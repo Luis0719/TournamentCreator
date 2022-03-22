@@ -8,7 +8,7 @@
 namespace tournament {
 TournamentManager::TournamentManager(
     std::unique_ptr<TournamentManagerOptions> options)
-    : contestants_(options->contestants),
+    : contestants_(std::move(options->contestants)),
       state_(std::move(options->game_mode)){};
 
 TournamentManager::~TournamentManager() {}

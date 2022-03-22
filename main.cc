@@ -59,7 +59,7 @@ void ParseAndValidateFlags(int argc, char* argv[]) {
 }  // namespace tournament
 
 int main(int argc, char* argv[]) {
-  google::InitGoogleLogging(argv[0]);
+  // google::InitGoogleLogging(argv[0]);
   tournament::ParseAndValidateFlags(argc, argv);
 
   tournament::InitTournament();

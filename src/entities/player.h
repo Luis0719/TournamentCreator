@@ -12,8 +12,8 @@ class Player : public Contestant {
   Player(std::string name);
   ~Player();
 
-  static std::vector<Contestant*> BuildPlayersFromStringList(
-      std::vector<std::string> names);
+  static std::unique_ptr<std::vector<std::unique_ptr<Contestant>>>
+  BuildPlayersFromStringList(std::vector<std::string> names);
   std::string GetName() override;
 };
 }  // namespace tournament

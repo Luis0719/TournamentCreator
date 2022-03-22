@@ -10,6 +10,7 @@ cc_library(
   name = "player",
   deps = [
     ":contestant",
+    "@com_google_absl//absl/memory:memory",
   ],
   srcs = ["player.cc"],
   hdrs = ["player.h"],

@@ -10,12 +10,13 @@
 
 namespace tournament {
 struct TournamentManagerOptions {
-  std::vector<Contestant*> contestants;
+  std::unique_ptr<std::vector<std::unique_ptr<Contestant>>> contestants;
   std::unique_ptr<GameMode> game_mode;
 
-  TournamentManagerOptions(std::vector<Contestant*> contestants,
-                           std::unique_ptr<GameMode> game_mode)
-      : contestants(contestants), game_mode(std::move(game_mode)){};
+  TournamentManagerOptions(
+      std::unique_ptr<std::vector<std::unique_ptr<Contestant>>> contestants,
+      std::unique_ptr<GameMode> game_mode)
+      : contestants(std::move(contestants)), game_mode(std::move(game_mode)){};
 };
 
 class TournamentManager {
@@ -27,7 +28,7 @@ class TournamentManager {
   GameMode* GetGamemode();
 
  private:
-  std::vector<Contestant*> contestants_;
+  std::unique_ptr<std::vector<std::unique_ptr<Contestant>>> contestants_;
   std::unique_ptr<GameMode> state_;
 };
 }  // namespace tournament
