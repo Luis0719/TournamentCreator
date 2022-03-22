@@ -8,10 +8,10 @@ namespace tournament {
 class GroupsMode : public GameMode {
  public:
   GroupsMode(int round_num);
+  ~GroupsMode();
 
   void AutomaticSetup() override;
   Contestant* GetChampion() override;
-  bool IsDone() override;
   void ManualSetup() override;
   void NextRound() override;
   void PlayRound() override;

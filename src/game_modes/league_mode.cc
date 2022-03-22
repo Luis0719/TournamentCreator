@@ -5,18 +5,20 @@
 
 namespace tournament {
 
-LeagueMode::LeagueMode(int round_num) : GameMode("League", round_num) {}
+LeagueMode::LeagueMode(int round_num) : GameMode("League", round_num){};
+LeagueMode::~LeagueMode(){};
 
 void LeagueMode::AutomaticSetup() { LOG(INFO) << "Automatic League setup"; };
 
 Contestant* LeagueMode::GetChampion() { return nullptr; };
 
-bool LeagueMode::IsDone() { return false; };
-
 void LeagueMode::ManualSetup(){};
 
-void LeagueMode::NextRound(){};
+void LeagueMode::NextRound() {
+  LOG(INFO) << "Next round";
+  Finish();
+};
 
-void LeagueMode::PlayRound(){};
+void LeagueMode::PlayRound() { LOG(INFO) << "Playing round " << round_num_; };
 
 }  // namespace tournament

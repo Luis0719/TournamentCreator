@@ -63,8 +63,6 @@ int main(int argc, char* argv[]) {
   // google::InitGoogleLogging(argv[0]);
   tournament::ParseAndValidateFlags(argc, argv);
 
-  LOG(INFO) << "Creating a new " << absl::GetFlag(FLAGS_mode) << " tournament";
-
   tournament::InitTournament();
 
   return 0;

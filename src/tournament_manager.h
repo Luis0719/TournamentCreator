@@ -4,22 +4,26 @@
 #include <string>
 #include <vector>
 
-#include "game_modes/game_mode.h"
+#include "src/entities/contestant.h"
+#include "src/game_modes/game_mode.h"
 
 namespace tournament {
-struct TournamentOptions {
-  int total_players;
-  std::vector<std::string> players;
+struct TournamentManagerOptions {
+  std::vector<Contestant*> contestants;
   GameMode* game_mode;
 };
 
 class TournamentManager {
  public:
-  TournamentManager::TournamentManager(TournamentOptions* options);
+  TournamentManager(TournamentManagerOptions* options);
+  ~TournamentManager();
+
+  void Start();
   GameMode* GetGamemode();
 
  private:
-  TournamentOptions* options_;
+  TournamentManagerOptions* options_;
+  GameMode* state_;
 };
 }  // namespace tournament
 

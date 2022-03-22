@@ -14,7 +14,9 @@ cc_library(
   name = "tournament_runner",
   deps = [
     ":flags",
+    ":tournament_manager",
     "//src/game_modes:game_mode_factory",
+    "//src/entities:player",
     "@com_github_google_glog//:glog",
     "@com_google_absl//absl/flags:flag",
   ],
@@ -28,6 +30,9 @@ cc_library(
 cc_library(
   name = "tournament_manager",
   deps = [
+    "//src/game_modes:game_mode",
+    "//src/entities:contestant",
+    "@com_github_google_glog//:glog",
   ],
   srcs = ["tournament_manager.cc"],
   hdrs = ["tournament_manager.h"],

@@ -8,10 +8,10 @@ namespace tournament {
 class DeathmatchMode : public GameMode {
  public:
   DeathmatchMode(int round_num);
+  ~DeathmatchMode();
 
   void AutomaticSetup() override;
   Contestant* GetChampion() override;
-  bool IsDone() override;
   void ManualSetup() override;
   void NextRound() override;
   void PlayRound() override;

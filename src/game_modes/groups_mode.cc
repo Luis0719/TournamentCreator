@@ -5,18 +5,20 @@
 
 namespace tournament {
 
-GroupsMode::GroupsMode(int round_num) : GameMode("Groups", round_num) {}
+GroupsMode::GroupsMode(int round_num) : GameMode("Groups", round_num){};
+GroupsMode::~GroupsMode(){};
 
 void GroupsMode::AutomaticSetup() { LOG(INFO) << "Automatic Groups setup"; };
 
 Contestant* GroupsMode::GetChampion() { return nullptr; };
 
-bool GroupsMode::IsDone() { return false; };
-
 void GroupsMode::ManualSetup(){};
 
-void GroupsMode::NextRound(){};
+void GroupsMode::NextRound() {
+  LOG(INFO) << "Next round";
+  Finish();
+};
 
-void GroupsMode::PlayRound(){};
+void GroupsMode::PlayRound() { LOG(INFO) << "Playing round " << round_num_; };
 
 }  // namespace tournament
