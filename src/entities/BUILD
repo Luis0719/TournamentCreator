@@ -7,6 +7,18 @@ cc_library(
 )
 
 cc_library(
+  name = "null_contestant",
+  deps = [
+    ":contestant",
+  ],
+  srcs = ["null_contestant.cc"],
+  hdrs = ["null_contestant.h"],
+  visibility = [
+    "//src:__subpackages__",
+  ],
+)
+
+cc_library(
   name = "player",
   deps = [
     ":contestant",

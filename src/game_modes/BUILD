@@ -1,5 +1,9 @@
 cc_library(
   name = "game_mode",
+  deps = [
+    "//src/entities:contestant",
+    "//src/entities:null_contestant",
+  ],
   hdrs = ["game_mode.h"],
   visibility = [
     "//src:__subpackages__"

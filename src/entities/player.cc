@@ -19,6 +19,4 @@ Player::BuildPlayersFromStringList(std::vector<std::string> names) {
 
   return result;
 }
-
-std::string Player::GetName() { return name_; }
 }  // namespace tournament

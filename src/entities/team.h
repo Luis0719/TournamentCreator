@@ -10,10 +10,6 @@ class Team : public Contestant {
  public:
   Team(std::string name);
   ~Team();
-
-  std::string GetName() override;
-  std::vector<Contestant*> GetRoaster() override;
-  void SetRoaster(std::vector<Contestant*> roaster) override;
 };
 }  // namespace tournament
 
