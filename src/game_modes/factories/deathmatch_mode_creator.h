@@ -4,8 +4,8 @@
 #include <memory>
 
 #include "src/game_modes/deathmatch_mode.h"
+#include "src/game_modes/factories/game_mode_creator.h"
 #include "src/game_modes/game_mode.h"
-#include "src/game_modes/game_mode_creator.h"
 
 namespace tournament {
 namespace factory {

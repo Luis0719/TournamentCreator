@@ -1,4 +1,4 @@
-#include "src/game_modes/groups_mode_creator.h"
+#include "src/game_modes/factories/groups_mode_creator.h"
 
 #include <memory>
 

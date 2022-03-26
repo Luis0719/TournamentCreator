@@ -1,4 +1,4 @@
-#include "src/game_modes/deathmatch_mode_creator.h"
+#include "src/game_modes/factories/deathmatch_mode_creator.h"
 
 #include <memory>
 

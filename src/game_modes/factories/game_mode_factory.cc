@@ -1,14 +1,14 @@
-#include "src/game_modes/game_mode_factory.h"
+#include "src/game_modes/factories/game_mode_factory.h"
 
 #include <memory>
 
 #include "absl/memory/memory.h"
 #include "absl/strings/str_cat.h"
-#include "src/game_modes/deathmatch_mode_creator.h"
+#include "src/game_modes/factories/deathmatch_mode_creator.h"
+#include "src/game_modes/factories/game_mode_creator.h"
+#include "src/game_modes/factories/groups_mode_creator.h"
+#include "src/game_modes/factories/league_mode_creator.h"
 #include "src/game_modes/game_mode.h"
-#include "src/game_modes/game_mode_creator.h"
-#include "src/game_modes/groups_mode_creator.h"
-#include "src/game_modes/league_mode_creator.h"
 
 namespace tournament {
 namespace factory {

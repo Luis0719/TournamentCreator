@@ -1,4 +1,4 @@
-#include "src/game_modes/league_mode_creator.h"
+#include "src/game_modes/factories/league_mode_creator.h"
 
 #include <memory>
 

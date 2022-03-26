@@ -8,8 +8,8 @@
 #include "glog/logging.h"
 #include "src/entities/factories/contestant_factory.h"
 #include "src/entities/player.h"
+#include "src/game_modes/factories/game_mode_factory.h"
 #include "src/game_modes/game_mode.h"
-#include "src/game_modes/game_mode_factory.h"
 #include "src/tournament_manager.h"
 
 namespace tournament {
