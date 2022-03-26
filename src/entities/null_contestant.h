@@ -10,8 +10,6 @@ class NullContestant : public Contestant {
  public:
   NullContestant();
   ~NullContestant();
-
-  std::string GetName() override;
 };
 }  // namespace tournament
 

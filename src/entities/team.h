@@ -10,6 +10,8 @@ class Team : public Contestant {
  public:
   Team(std::string name);
   ~Team();
+
+  std::string GetDetails() override;
 };
 }  // namespace tournament
 

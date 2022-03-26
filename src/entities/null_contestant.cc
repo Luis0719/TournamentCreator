@@ -7,6 +7,4 @@
 namespace tournament {
 NullContestant::NullContestant() : Contestant("") {}
 NullContestant::~NullContestant() {}
-
-std::string NullContestant::GetName() { return name_; }
 }  // namespace tournament
