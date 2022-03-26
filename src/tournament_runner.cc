@@ -31,7 +31,7 @@ GameMode::Mode GetGameMode() {
 }
 
 std::unique_ptr<TournamentManagerOptions> BuildTournamentManagerOptions(
-    std::unique_ptr<GameMode> game_mode) {
+    std::unique_ptr<TournamentManagerState> game_mode) {
   std::unique_ptr<std::vector<std::unique_ptr<Contestant>>> contestants =
       factory::CreateContestants();
 
@@ -44,7 +44,7 @@ void InitTournament() {
   LOG(INFO) << "Creating tournament";
 
   GameMode::Mode game_mode_type = GetGameMode();
-  std::unique_ptr<GameMode> tournament =
+  std::unique_ptr<TournamentManagerState> tournament =
       factory::CreateTournament(game_mode_type);
 
   std::unique_ptr<TournamentManagerOptions> options =

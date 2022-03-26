@@ -5,6 +5,7 @@ cc_library(
         "//src:__subpackages__",
     ],
     deps = [
+        "//src:tournament_manager",
         "//src/entities:contestant",
         "//src/entities:null_contestant",
         "@com_github_google_glog//:glog",
@@ -21,7 +22,9 @@ cc_library(
     deps = [
         ":game_mode",
         "//src/entities:contestant",
+        "//src/entities:match",
         "@com_github_google_glog//:glog",
+        "@com_google_absl//absl/memory",
     ],
 )
 

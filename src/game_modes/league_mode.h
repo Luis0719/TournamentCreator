@@ -5,10 +5,8 @@
 #include "src/game_modes/game_mode.h"
 
 namespace tournament {
-struct LeagueOptions {
-  int round_num;
-
-  LeagueOptions(int round_num) : round_num(round_num){};
+struct LeagueOptions : GameModeOptions {
+  LeagueOptions(int round_num) : GameModeOptions(round_num){};
 };
 
 class LeagueMode : public GameMode {

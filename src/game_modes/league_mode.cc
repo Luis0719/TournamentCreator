@@ -6,7 +6,7 @@
 namespace tournament {
 
 LeagueMode::LeagueMode(std::unique_ptr<LeagueOptions> options)
-    : GameMode("League", options->round_num){};
+    : GameMode("League", std::move(options)){};
 LeagueMode::~LeagueMode(){};
 
 void LeagueMode::AutomaticSetup() { LOG(INFO) << "Automatic League setup"; };

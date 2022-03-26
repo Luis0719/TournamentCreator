@@ -3,7 +3,7 @@ cc_library(
     srcs = ["flags.cc"],
     hdrs = ["flags.h"],
     visibility = [
-        "//visibility:public",
+        "//:__subpackages__",
     ],
     deps = [
         "@com_google_absl//absl/flags:flag",
@@ -33,9 +33,12 @@ cc_library(
     name = "tournament_manager",
     srcs = ["tournament_manager.cc"],
     hdrs = ["tournament_manager.h"],
+    visibility = [
+        "//src:__subpackages__",
+    ],
     deps = [
         "//src/entities:contestant",
-        "//src/game_modes:game_mode",
+        "//src/entities:null_contestant",
         "@com_github_google_glog//:glog",
         "@com_google_absl//absl/memory",
     ],
@@ -46,7 +49,7 @@ cc_library(
     srcs = ["utils.cc"],
     hdrs = ["utils.h"],
     visibility = [
-        "//visibility:public",
+        "//:__subpackages__",
     ],
     deps = [
         "@com_google_absl//absl/flags:flag",

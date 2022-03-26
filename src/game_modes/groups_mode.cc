@@ -6,7 +6,7 @@
 namespace tournament {
 
 GroupsMode::GroupsMode(std::unique_ptr<GroupsOptions> options)
-    : GameMode("Groups", options->round_num){};
+    : GameMode("Groups", std::move(options)){};
 GroupsMode::~GroupsMode(){};
 
 void GroupsMode::AutomaticSetup() { LOG(INFO) << "Automatic Groups setup"; };

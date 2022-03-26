@@ -2,7 +2,6 @@
 
 #include <memory>
 
-#include "game_modes/game_mode.h"
 #include "glog/logging.h"
 
 namespace tournament {
@@ -15,6 +14,7 @@ TournamentManager::~TournamentManager() {}
 
 void TournamentManager::Start() {
   LOG(INFO) << "Starting tournament";
+  state_->SetContext(this);
   state_->AutomaticSetup();
 
   while (!state_->IsDone()) {
@@ -26,5 +26,7 @@ void TournamentManager::Start() {
   LOG(INFO) << "Congratulations " << state_->GetChampion()->GetName() << "!";
 };
 
-GameMode* TournamentManager::GetGamemode() { return state_.get(); }
+TournamentManagerState* TournamentManager::GetGamemode() {
+  return state_.get();
+}
 }  // namespace tournament
