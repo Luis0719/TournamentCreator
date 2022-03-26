@@ -8,8 +8,9 @@
 namespace tournament {
 class ContestantCreator {
  public:
-  virtual std::vector<Contestant> FromArgs() = 0;
-  virtual std::vector<Contestant> FromFile() = 0;
+  virtual std::unique_ptr<std::vector<std::unique_ptr<Contestant>>>
+  CreateContestants() = 0;
+  virtual ~ContestantCreator(){};
 };
 }  // namespace tournament
 

@@ -9,8 +9,12 @@
 namespace tournament {
 class PlayersCreator : public ContestantCreator {
  public:
-  virtual std::vector<Contestant> FromArgs() override;
-  virtual std::vector<Contestant> FromFile() override;
+  std::unique_ptr<std::vector<std::unique_ptr<Contestant>>> CreateContestants()
+      override;
+
+ private:
+  std::unique_ptr<std::vector<std::unique_ptr<Contestant>>> FromArgs();
+  std::unique_ptr<std::vector<std::unique_ptr<Contestant>>> FromFile();
 };
 }  // namespace tournament
 

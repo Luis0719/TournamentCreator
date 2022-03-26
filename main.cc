@@ -10,26 +10,26 @@ void ParseAndValidateFlags(int argc, char* argv[]) {
   absl::ParseCommandLine(argc, argv);
 
   {  // teams input
-    if (absl::GetFlag(FLAGS_teams_source) != "" &&
+    if (absl::GetFlag(FLAGS_teams_src) != "" &&
         absl::GetFlag(FLAGS_teams).size() > 0) {
       LOG(WARNING) << "Both teams source and arguments were provided. "
                       "Argument-listed teams will be used.";
     }
 
-    if (absl::GetFlag(FLAGS_teams_source) == "" &&
+    if (absl::GetFlag(FLAGS_teams_src) == "" &&
         absl::GetFlag(FLAGS_teams).size() == 0) {
       LOG(FATAL)
           << "Either provide teams' source file or argument-listed teams.";
     }
 
-    if (absl::GetFlag(FLAGS_teams_source) != "" &&
-        !file_exists(absl::GetFlag(FLAGS_teams_source))) {
+    if (absl::GetFlag(FLAGS_teams_src) != "" &&
+        !file_exists(absl::GetFlag(FLAGS_teams_src))) {
       LOG(FATAL) << "Could not find teams source file "
-                 << absl::GetFlag(FLAGS_teams_source);
+                 << absl::GetFlag(FLAGS_teams_src);
     }
 
     // reaching
-    if (absl::GetFlag(FLAGS_teams_source) != "" &&
+    if (absl::GetFlag(FLAGS_teams_src) != "" &&
         absl::GetFlag(FLAGS_teams).size() == 0) {
       LOG(FATAL) << "No teams were provided. Either use --teams_source with a "
                     "source file or --teams for a comma separated list";

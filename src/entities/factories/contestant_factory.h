@@ -7,13 +7,12 @@
 #include "src/entities/creators/contestant_creator.h"
 
 namespace tournament {
-class ContestantFactory {
- public:
-  std::unique_ptr<std::vector<Contestant>> CreateContestants();
+namespace factory {
 
- private:
-  std::unique_ptr<ContestantCreator> GetContestantCreator();
-};
+std::unique_ptr<std::vector<std::unique_ptr<Contestant>>> CreateContestants();
+std::unique_ptr<ContestantCreator> GetContestantCreator();
+
+}  // namespace factory
 }  // namespace tournament
 
 #endif

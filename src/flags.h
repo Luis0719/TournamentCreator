@@ -6,8 +6,10 @@
 
 #include "absl/flags/declare.h"
 
-ABSL_DECLARE_FLAG(std::string, teams_source);
+ABSL_DECLARE_FLAG(std::string, teams_src);
+ABSL_DECLARE_FLAG(std::string, players_src);
 ABSL_DECLARE_FLAG(std::vector<std::string>, teams);
+ABSL_DECLARE_FLAG(std::vector<std::string>, players);
 ABSL_DECLARE_FLAG(std::string, mode);
 ABSL_DECLARE_FLAG(bool, league);
 ABSL_DECLARE_FLAG(bool, deathmatch);
