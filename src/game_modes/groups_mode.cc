@@ -10,8 +10,6 @@ GroupsMode::~GroupsMode(){};
 
 void GroupsMode::AutomaticSetup() { LOG(INFO) << "Automatic Groups setup"; };
 
-Contestant* GroupsMode::GetChampion() { return nullptr; };
-
 void GroupsMode::ManualSetup(){};
 
 void GroupsMode::NextRound() {

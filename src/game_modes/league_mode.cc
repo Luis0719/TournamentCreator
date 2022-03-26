@@ -10,8 +10,6 @@ LeagueMode::~LeagueMode(){};
 
 void LeagueMode::AutomaticSetup() { LOG(INFO) << "Automatic League setup"; };
 
-Contestant* LeagueMode::GetChampion() { return nullptr; };
-
 void LeagueMode::ManualSetup(){};
 
 void LeagueMode::NextRound() {

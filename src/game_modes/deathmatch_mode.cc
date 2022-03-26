@@ -2,6 +2,7 @@
 
 #include "glog/logging.h"
 #include "src/entities/contestant.h"
+#include "src/entities/null_contestant.h"
 
 namespace tournament {
 
@@ -12,8 +13,6 @@ DeathmatchMode::~DeathmatchMode(){};
 void DeathmatchMode::AutomaticSetup() {
   LOG(INFO) << "Automatic Deathmatch setup";
 };
-
-Contestant* DeathmatchMode::GetChampion() { return nullptr; };
 
 void DeathmatchMode::ManualSetup(){};
 

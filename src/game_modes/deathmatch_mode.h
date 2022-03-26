@@ -11,7 +11,6 @@ class DeathmatchMode : public GameMode {
   ~DeathmatchMode();
 
   void AutomaticSetup() override;
-  Contestant* GetChampion() override;
   void ManualSetup() override;
   void NextRound() override;
   void PlayRound() override;

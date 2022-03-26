@@ -23,8 +23,7 @@ void TournamentManager::Start() {
   }
 
   LOG(INFO) << "Tournament finished!";
-  //   LOG(INFO) << "Congratulations " << state_->GetChampion()->GetName() <<
-  //   "!";
+  LOG(INFO) << "Congratulations " << state_->GetChampion()->GetName() << "!";
 };
 
 GameMode* TournamentManager::GetGamemode() { return state_.get(); }

@@ -11,7 +11,6 @@ class GroupsMode : public GameMode {
   ~GroupsMode();
 
   void AutomaticSetup() override;
-  Contestant* GetChampion() override;
   void ManualSetup() override;
   void NextRound() override;
   void PlayRound() override;

@@ -3,6 +3,7 @@
 
 #include <string>
 
+#include "glog/logging.h"
 #include "src/entities/contestant.h"
 #include "src/entities/null_contestant.h"
 
@@ -25,7 +26,16 @@ class GameMode {
 
   virtual void NextRound() = 0;
   virtual void PlayRound() = 0;
-  virtual Contestant* GetChampion() { return new NullContestant(); };
+
+  virtual void SetChampion(Contestant* champion) { champion_ = champion; }
+  virtual Contestant* GetChampion() {
+    if (champion_ == nullptr) {
+      LOG(ERROR) << "Tried to access champions but it haven't been set";
+      return new NullContestant();
+    }
+
+    return champion_;
+  };
 
  protected:
   GameMode(std::string mode_name, int round_num)
@@ -33,6 +43,7 @@ class GameMode {
   std::string mode_name_;
   int round_num_;
   bool is_done_;
+  Contestant* champion_;
 };
 }  // namespace tournament
 
