@@ -10,9 +10,15 @@
 namespace tournament {
 namespace factory {
 
+std::unique_ptr<GroupsOptions> BuildGroupsOptions() {
+  return absl::make_unique<GroupsOptions>(1);
+};
+
 std::unique_ptr<GameMode> GroupsModeCreator::CreateTournament() {
   LOG(INFO) << "Creating groups";
-  return absl::make_unique<GroupsMode>(1);
+  auto options = BuildGroupsOptions();
+
+  return absl::make_unique<GroupsMode>(std::move(options));
 };
 
 }  // namespace factory

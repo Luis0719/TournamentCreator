@@ -10,9 +10,15 @@
 namespace tournament {
 namespace factory {
 
+std::unique_ptr<DeathmatchOptions> BuildDeathmatchOptions() {
+  return absl::make_unique<DeathmatchOptions>(1);
+};
+
 std::unique_ptr<GameMode> DeathmatchModeCreator::CreateTournament() {
   LOG(INFO) << "Creating deathmatch";
-  return absl::make_unique<DeathmatchMode>(1);
+  auto options = BuildDeathmatchOptions();
+
+  return absl::make_unique<DeathmatchMode>(std::move(options));
 };
 
 }  // namespace factory

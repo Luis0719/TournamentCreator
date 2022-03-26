@@ -5,9 +5,15 @@
 #include "src/game_modes/game_mode.h"
 
 namespace tournament {
+struct GroupsOptions {
+  int round_num;
+
+  GroupsOptions(int round_num) : round_num(round_num){};
+};
+
 class GroupsMode : public GameMode {
  public:
-  GroupsMode(int round_num);
+  GroupsMode(std::unique_ptr<GroupsOptions> options);
   ~GroupsMode();
 
   void AutomaticSetup() override;

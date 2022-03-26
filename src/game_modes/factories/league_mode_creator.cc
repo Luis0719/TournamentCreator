@@ -10,9 +10,15 @@
 namespace tournament {
 namespace factory {
 
+std::unique_ptr<LeagueOptions> BuildLeagueOptions() {
+  return absl::make_unique<LeagueOptions>(1);
+};
+
 std::unique_ptr<GameMode> LeagueModeCreator::CreateTournament() {
   LOG(INFO) << "Creating league";
-  return absl::make_unique<LeagueMode>(1);
+  auto options = BuildLeagueOptions();
+
+  return absl::make_unique<LeagueMode>(std::move(options));
 };
 
 }  // namespace factory

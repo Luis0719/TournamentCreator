@@ -5,9 +5,15 @@
 #include "src/game_modes/game_mode.h"
 
 namespace tournament {
+struct DeathmatchOptions {
+  int round_num;
+
+  DeathmatchOptions(int round_num) : round_num(round_num){};
+};
+
 class DeathmatchMode : public GameMode {
  public:
-  DeathmatchMode(int round_num);
+  DeathmatchMode(std::unique_ptr<DeathmatchOptions> options);
   ~DeathmatchMode();
 
   void AutomaticSetup() override;

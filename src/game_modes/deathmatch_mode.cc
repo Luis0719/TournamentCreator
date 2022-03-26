@@ -6,8 +6,8 @@
 
 namespace tournament {
 
-DeathmatchMode::DeathmatchMode(int round_num)
-    : GameMode("Deathmatch", round_num) {}
+DeathmatchMode::DeathmatchMode(std::unique_ptr<DeathmatchOptions> options)
+    : GameMode("Deathmatch", options->round_num) {}
 DeathmatchMode::~DeathmatchMode(){};
 
 void DeathmatchMode::AutomaticSetup() {
