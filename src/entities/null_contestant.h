@@ -10,6 +10,8 @@ class NullContestant : public Contestant {
  public:
   NullContestant();
   ~NullContestant();
+
+  bool IsNull() override { return true; }
 };
 }  // namespace tournament
 

@@ -9,6 +9,7 @@ class Contestant {
   virtual ~Contestant(){};
   virtual std::string GetName() { return name_; };
   virtual std::string GetDetails() { return name_; };
+  virtual bool IsNull() { return false; }
 
  protected:
   Contestant(std::string name) : name_(name){};
